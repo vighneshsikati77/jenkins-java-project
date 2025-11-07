@@ -68,6 +68,8 @@ pipeline {
             steps {
               sh """
                  echo "---------------Scanning Docker Image-----------"
+                  export TRIVY_HOME=/home/jenkins/trivy
+                  mkdir -p $TRIVY_HOME
                  trivy image priya123456/myjavaapp:"${App_Version}"
                  echo "---------------Completed Scanning Docker Image-----------"
                  """

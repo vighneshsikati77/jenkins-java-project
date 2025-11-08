@@ -3,21 +3,23 @@ pipeline {
 stages{
    stage("checkout"){
      steps {
-            sh """
-           echo "Checkout done - $PWD "
-           ls -lrt
-               """
-      }
-   }
-stage("Building  the application"){
-     steps {
-        sh """
-           echo "==========================Building Java Application======================"
-           mvn clean package
-           echo "=======Building Java Application Completed=========="
+           sh """
+           echo "Checkout done - $PWD"
+           ls -l
            """
       }
    }
-} //end of stages
 
-} // end of pipelines
+stage("Building the application"){
+     steps {
+         sh """
+           echo "========Building Java Application============"
+           mvn clean package
+           echo "======Building Java Application completed====="
+         """      
+      }
+   }
+
+} // end of stages
+
+} // end of pipeline

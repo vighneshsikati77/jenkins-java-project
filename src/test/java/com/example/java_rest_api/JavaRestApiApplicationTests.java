@@ -12,12 +12,12 @@ class JavaRestApiApplicationTests {
 
 	@Test()
 	void test1(){
-		System.out.println("Test ruuuuuunning88888");
+		System.out.println("Running Test 1");
 	}
 
 	@Test()
 	void test2(){
-		System.out.println("Test running 177000000777");
+		System.out.println("Running Test 2");
 	}
 
 }

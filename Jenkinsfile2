@@ -4,7 +4,7 @@ stages{
    stage("checkout"){
      steps {
            sh """
-           echo "Checkout done - $PWD"
+           echo "Checkout done "
            ls -l
            """
       }

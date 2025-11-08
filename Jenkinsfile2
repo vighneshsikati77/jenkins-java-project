@@ -28,6 +28,14 @@ stage("Testing the application"){
          """      
       }
    }
+stage("Building the Docker image"){
+     steps {
+         sh """
+           echo "========Building the Docker image ============"
+           echo "======Building Docker image completed====="
+         """      
+      }
+   }
 
 
 } // end of stages

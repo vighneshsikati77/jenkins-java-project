@@ -4,7 +4,7 @@ stages{
    stage("checkout"){
      steps {
            sh """
-           echo "Checkout done "
+           echo "Checkout done - $PWD"
            ls -l
            """
       }
@@ -19,6 +19,16 @@ stage("Building the application"){
          """      
       }
    }
+stage("Testing the application"){
+     steps {
+         sh """
+           echo "========Testing Java Application============"
+           mvn test
+           echo "======Testing Java Application completed====="
+         """      
+      }
+   }
+
 
 } // end of stages
 

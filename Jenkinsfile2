@@ -1,5 +1,12 @@
 pipeline {
  agent any
+
+environment {
+        IMAGE_NAME = 'priya123456/restapi'
+        CONTAINER_NAME = 'restapi-container'
+        PORT_MAPPING = '8081:7000'  // hostPort:containerPort
+    }
+
 stages{
    stage("checkout"){
      steps {
@@ -32,6 +39,7 @@ stage("Building the Docker image"){
      steps {
          sh """
            echo "========Building the Docker image ============"
+           docker build -t $IMAGE_NAME .
            echo "======Building Docker image completed====="
          """      
       }

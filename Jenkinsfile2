@@ -5,7 +5,9 @@ environment {
         IMAGE_NAME = 'vighneshsikati77/restapi'
         CONTAINER_NAME = 'restapi-container'
         PORT_MAPPING = '8081:7000'  // hostPort:containerPort
-    }
+        MINIKUBE_IP = '3.110.229.147'  //  EC2 instance IP
+    
+}
 
 stages{
    stage("checkout"){
@@ -57,6 +59,16 @@ stage(' Push Image') {
               }
         }
      }
+
+stage('Deploying on EC2 Minikube') {
+            steps {
+                dir("${APP_PATH}") {
+                    sh 'scp deployment.yaml ubuntu@$MINIKUBE_IP:/home/ubuntu/'
+                    sh 'ssh ubuntu@$MINIKUBE_IP "kubectl delete -f /home/ubuntu/deployment.yaml --ignore-not-found=true"'
+                    sh 'ssh ubuntu@$MINIKUBE_IP "kubectl apply -f /home/ubuntu/deployment.yaml"'
+                }
+            }
+        }
 
 
 } // end of stages

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: restapi-container
-        image: vighneshsikati77/restapi:latest
+        image: priya123456/restapi:latest  // mam's image
         ports:
         - containerPort: 7000
 ---

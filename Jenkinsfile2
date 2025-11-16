@@ -5,7 +5,7 @@ environment {
         IMAGE_NAME = 'vighneshsikati77/restapi'
         CONTAINER_NAME = 'restapi-container'
         PORT_MAPPING = '8081:7000'  // hostPort:containerPort
-        MINIKUBE_IP = '3.110.125.165'  //  EC2 instance IP
+        MINIKUBE_IP = '65.1.185.1905'  //  EC2 instance IP
     
 }
 
